@@ -1,0 +1,13 @@
+/Old
+/FastGEMF
+/GEMF results
+/Presentation
+/*.PNG
+/SIR/BA_200
+/SIR/BA_1000
+/SIR/BA_10000
+/SIS/BA_200
+/SIS/BA_1000
+/SIS/BA_10000
+*.prof
+venv
