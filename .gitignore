@@ -1,13 +1,27 @@
-/Old
-/FastGEMF
-/GEMF results
-/Presentation
-/*.PNG
-/SIR/BA_200
-/SIR/BA_1000
-/SIR/BA_10000
-/SIS/BA_200
-/SIS/BA_1000
-/SIS/BA_10000
-*.prof
-venv
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.venv/
+*.egg-info/
+
+# Generated outputs
+SIS_Revision/figures/
+SIS_Revision/data/
+SIS_Revision/networks/graphs/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.pdf
+
+# OS
+.DS_Store
+Thumbs.db

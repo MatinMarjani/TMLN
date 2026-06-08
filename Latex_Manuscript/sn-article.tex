@@ -1,0 +1,902 @@
+%Version 3.1 December 2024
+% See section 11 of the User Manual for version history
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                                                 %%
+%% Please do not use \input{...} to include other tex files.       %%
+%% Submit your LaTeX manuscript as one .tex document.              %%
+%%                                                                 %%
+%% All additional figures and files should be attached             %%
+%% separately and not embedded in the \TeX\ document itself.       %%
+%%                                                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\documentclass[referee,sn-basic]{sn-jnl}% referee option is meant for double line spacing
+
+%%=======================================================%%
+%% to print line numbers in the margin use lineno option %%
+%%=======================================================%%
+
+%%\documentclass[lineno,pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%=========================================================================================%%
+%% the documentclass is set to pdflatex as default. You can delete it if not appropriate.  %%
+%%=========================================================================================%%
+
+%%\documentclass[sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+
+%%Note: the following reference styles support Namedate and Numbered referencing. By default the style follows the most common style. To switch between the options you can add or remove Numbered in the optional parenthesis. 
+%%The option is available for: sn-basic.bst, sn-chicago.bst%  
+ 
+% \documentclass[pdflatex,sn-nature]{sn-jnl}% Style for submissions to Nature Portfolio journals
+% \documentclass[pdflatex,sn-basic]{sn-jnl}% Basic Springer Nature Reference Style/Chemistry Reference Style
+\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}% Math and Physical Sciences Numbered Reference Style
+% \documentclass[pdflatex,sn-mathphys-ay]{sn-jnl}% Math and Physical Sciences Author Year Reference Style
+%%\documentclass[pdflatex,sn-aps]{sn-jnl}% American Physical Society (APS) Reference Style
+%%\documentclass[pdflatex,sn-vancouver-num]{sn-jnl}% Vancouver Numbered Reference Style
+%%\documentclass[pdflatex,sn-vancouver-ay]{sn-jnl}% Vancouver Author Year Reference Style
+%%\documentclass[pdflatex,sn-apa]{sn-jnl}% APA Reference Style
+%%\documentclass[pdflatex,sn-chicago]{sn-jnl}% Chicago-based Humanities Reference Style
+
+%%%% Standard Packages
+%%<additional latex packages if required can be included here>
+
+\usepackage{graphicx}%
+\usepackage{multirow}%
+\usepackage{amsmath,amssymb,amsfonts}%
+\usepackage{amsthm}%
+\usepackage{mathrsfs}%
+\usepackage[title]{appendix}%
+\usepackage{xcolor}%
+\usepackage{textcomp}%
+\usepackage{manyfoot}%
+\usepackage{booktabs}%
+% \usepackage{algorithm}%
+% \usepackage{algorithmicx}%
+\usepackage{algpseudocode}%
+\usepackage{listings}%
+
+% algorithm / pseudocode
+\usepackage{algorithm}
+\usepackage{algorithmicx}%
+% \usepackage{algorithmic}
+\usepackage{hyperref}
+\usepackage{enumitem}
+%%%%
+
+%%%%%=============================================================================%%%%
+%%%%  Remarks: This template is provided to aid authors with the preparation
+%%%%  of original research articles intended for submission to journals published 
+%%%%  by Springer Nature. The guidance has been prepared in partnership with 
+%%%%  production teams to conform to Springer Nature technical requirements. 
+%%%%  Editorial and presentation requirements differ among journal portfolios and 
+%%%%  research disciplines. You may find sections in this template are irrelevant 
+%%%%  to your work and are empowered to omit any such section if allowed by the 
+%%%%  journal you intend to submit to. The submission guidelines and policies 
+%%%%  of the journal take precedence. A detailed User Manual is available in the 
+%%%%  template package for technical guidance.
+%%%%%=============================================================================%%%%
+
+%% as per the requirement new theorem styles can be included as shown below
+\theoremstyle{thmstyleone}%
+\newtheorem{theorem}{Theorem}%  meant for continuous numbers
+%%\newtheorem{theorem}{Theorem}[section]% meant for sectionwise numbers
+%% optional argument [theorem] produces theorem numbering sequence instead of independent numbers for Proposition
+\newtheorem{proposition}[theorem]{Proposition}% 
+%%\newtheorem{proposition}{Proposition}% to get separate numbers for theorem and proposition etc.
+
+\theoremstyle{thmstyletwo}%
+\newtheorem{example}{Example}%
+\newtheorem{remark}{Remark}%
+
+\theoremstyle{thmstylethree}%
+\newtheorem{definition}{Definition}%
+
+\raggedbottom
+%%\unnumbered% uncomment this for unnumbered level heads
+
+\begin{document}
+
+\title[Article Title]{Epidemic Mean-Field Thresholds of SIS Dynamics on Temporal Multiplex Networks with Activity-Driven Layers}
+
+%%=============================================================%%
+%% GivenName	-> \fnm{Joergen W.}
+%% Particle	-> \spfx{van der} -> surname prefix
+%% FamilyName	-> \sur{Ploeg}
+%% Suffix	-> \sfx{IV}
+%% \author*[1,2]{\fnm{Joergen W.} \spfx{van der} \sur{Ploeg} 
+%%  \sfx{IV}}\email{iauthor@gmail.com}
+%%=============================================================%%
+
+\author*[1]{\fnm{Matin} \sur{Marjani}}\email{matinmarjani@ksu.edu}
+
+\author[2]{\fnm{Shirshendu} \sur{Chatterjee}}\email{shirshendu@ccny.cuny.edu}
+% \equalcont{These authors contributed equally to this work.}
+
+\author[3]{\fnm{Sharmodeep} \sur{Bhattacharyya}}\email{Sharmodeep.Bhattacharyya@oregonstate.edu}
+% \equalcont{These authors contributed equally to this work.}
+
+\author[1]{\fnm{Caterina} \sur{Scoglio}}\email{caterina@ksu.edu}
+% \equalcont{These authors contributed equally to this work.}
+
+\affil[1]{\orgdiv{Department of Electrical and Computer Engineering}, \orgname{Kansas State University}}%\orgaddress{\street{Street}, \city{City}, \postcode{100190}, \state{State}, \country{Country}}}
+
+\affil[2]{\orgdiv{Department of Mathematics}, \orgname{City University of New York}} 
+% \orgaddress{\street{Street}, \city{City}, \postcode{10587}, \state{State}, \country{Country}}}
+
+\affil[3]{\orgdiv{Department of Statistics}, \orgname{Oregon State University}}
+% \orgaddress{\street{Street}, \city{City}, \postcode{610101}, \state{State}, \country{Country}}}
+
+
+\abstract{We investigate the susceptible--infected--susceptible (SIS) process on a temporal multiplex network where a persistent static layer is overlaid with an activity-driven layer of one-step contacts. Simulations on several random network families (Erd\H{o}s--R\'enyi, Watts--Strogatz, Barab\'asi--Albert) show a clear extinction–persistence transition that shifts systematically as the number of contacts per activation is increased. To explain this behavior, we linearize the dynamics near the disease-free state and replace the random temporal contacts by their mean effect, which produces a simple early-time operator: the static adjacency plus a rank-one, all-to-all mixing term. This leads to a compact mean-field onset rule depending only on the spectral radius of the static layer and on the temporal parameters, and it closely tracks the empirical phase boundary obtained from simulations. Overall, the results indicate that a low-dimensional, simulation-guided approximation is sufficient to relate structural metrics and temporal mixing to measurable epidemic outcomes on heterogeneous networks.}
+
+\keywords{SIS dynamics, temporal networks, activity-driven networks, multiplex, spectral threshold.}
+
+%%\pacs[JEL Classification]{D8, H51}
+%%\pacs[MSC Classification]{35A01, 65L10, 65L12, 65L20, 65L70}
+
+\maketitle
+
+\section{Introduction}\label{sec:introduction}
+
+The SIS dynamics (also known as the \emph{contact process}) was introduced in 1974 \cite{harris1974contact} as a model of infection spread on static infinite lattices. Thereafter, this dynamics has been studied extensively on various static networks in several disciplines, including probability (see the books \cite{liggett2013stochastic,durrett2010random} and the references therein), physics \cite{pastor2001epidemic,pastor2002epidemic,PSV2015}, network science \cite{gomez2008spreading}, and computer science \cite{Wang2003,Chakrabarti2008,VanMieghem2009}. 
+On the other hand, activity-driven models for capturing fast interactions via short-lived links \cite{Perra2012,HolmeSaramaki2012} have been studied in the literature.
+
+However, many real systems combine persistent ties (e.g., friends, co-workers, infrastructure) with fleeting contacts (e.g., encounters, mobility, online interactions). In many applications, SIS dynamics is a natural candidate for modeling activities in the presence of both persistent and fleeting connections between different segments or nodes of the underlying network.  For understanding the behavior and intricacies of such a complex dynamics, one needs a framework, e.g., something similar to that used in  \cite{Valdano2015}, that captures how the two mechanisms, namely (a) fixed static network layer representing stable connections and (b) an activity-driven temporal network layer representing transient interactions, act together to dictate the behavior of the SIS dynamics on the resulting dynamic network.
+
+Motivated by this, we study discrete-time SIS dynamics on such a temporal multiplex network consisting of:
+(i) a static undirected network with associated adjacency matrix $A$ (links always present), and
+(ii) an activity-driven layer where, at each snapshot, every node independently activates with probability $a$ and creates $m$ random links that persist for one step. Infections transmit with probability $\beta$ per contact per step; infected nodes recover with probability $\mu$ per step.
+We conduct extensive stochastic simulations on multiple random graph families (Erd\H{o}s--R\'enyi, Watts--Strogatz, and Barab\'asi--Albert) to quantify how temporal activation reshapes the transition from extinction to persistence. Multiple notions (see Section 2 for details) of extinction and persistence have been considered in the literature, depending on the context. In simulations, we classify a run as persistent if the prevalence remains above a small threshold $\varepsilon$ for all $t \ge T_{\mathrm{burn}}$ and never hits zero within the $T$ simulated steps; otherwise, we classify it as extinction. These simulations reveal a smooth phase boundary in $(\tau,m)$, where $\tau=\beta/\mu$, and show that increasing $m$ can switch the system from extinction to persistence. 
+
+% ------------------------
+
+We study SIS dynamics on a multiplex network with a fixed (static) backbone and an activity-driven temporal layer. Our analysis focuses on the near-onset regime, where the early-time growth of infection is governed by a simple combination of static structure and temporal mixing. The temporal layer contributes an effective all-to-all component proportional to its mean snapshot degree $2am$, yielding an additive correction to the static spectral term. This leads to a practical persistence criterion that couples the backbone spectral radius $\lambda_1$ with the temporal contact rate. The resulting approximation provides a convenient estimator for the onset of endemic behavior and motivates a control metric: the critical integer contact count
+\[
+m_c = \min\{ m\in\mathbb{N} : \tau > 1/(\lambda_1+2am) \}, \qquad \tau=\beta/\mu,
+\]
+which represents the minimal level of temporary connectivity required for sustained transmission. We treat this condition as a finite-size, near-DFE approximation and quantify its accuracy against simulations across network topologies.
+
+A closely related situation appears in engineered communication systems. Zhuang and Ya\u{g}an showed that information can spread more easily when a fixed (physical) layer is overlaid with a transient online layer, and that the second layer changes the effective spreading condition \cite{ZhuangYagan2016}. Our model captures the same pattern: a given backbone (infrastructure, control, long-term ties) plus short-lived opportunistic contacts (V2V relays, device-to-device sync, IoT gossip). In such cases, the backbone is fixed, while the temporal contacts are the only part one can tune—precisely the regime where an additive rule in terms of the backbone spectral radius and the mean temporal connectivity is useful.
+
+Throughout, metastable prevalence corresponds to what is often informally referred to as mean-field steady-state prevalence in finite simulations.
+
+
+% ------------------------------------------------------------------------------------
+\section{Related Work and Background}
+\label{sec:related}
+
+\textbf{Contact process / SIS on infinite graphs.}
+The SIS dynamics have a long history in probability theory, where a classical continuous-time representative is the contact process.
+It has been studied on infinite transitive graphs, including $d$-dimensional lattices \cite{holley1978survival,durrett1982contact} and homogeneous trees \cite{liggett1996branching,lalley1999growth,lalley2002weak}, as well as broader classes of infinite trees \cite{pemantle1992contact}.
+For these infinite-graph settings, one typically observes a phase transition in the infection rate $\lambda$: starting from finitely many infected nodes, either the infection dies out almost surely (subcritical/extinction regime) or survives forever with positive probability (supercritical/persistence regime), with a critical value $\lambda_c>0$ separating these behaviors.
+On infinite trees, additional transitions (e.g., weak versus strong survival) can occur \cite{lalley2002weak,lalley1999growth}.
+
+\textbf{SIS on large finite graphs and extinction-time notions.}
+On any finite graph, the SIS/contact-process dynamics eventually reach the absorbing all-healthy state, so the infinite-graph survival notion does not directly carry over.
+Instead, a central quantity is the extinction time, often studied from the worst-case initial condition where all nodes are infected.
+Early work analyzed extinction-time behavior on homogeneous finite graphs such as $d$-dimensional tori and grids \cite{durrett1988contact,mountford1993metastable}.
+More recent results address complex network models including the Barab\'asi--Albert preferential attachment model \cite{berger2005spread}, the configuration model \cite{ChatterjeeDurrett2009,Mountford2013,mountford2016exponential,bhamidi2021survival}, Erd\H{o}s--R\'enyi random graphs \cite{cator2021explicit,nam2022critical}, random regular graphs \cite{mourrat2016phase}, small-world graphs \cite{durrett2007two}, networks with community structure \cite{sivakoff2017contact-communities}, and general random graph families \cite{valesin2024contact}.
+In this line of work, a finite-graph system is called \emph{supercritical} (resp.\ \emph{subcritical}) when the extinction time grows ``large'' (resp.\ ``small'') with the number of nodes $n$; typically ``large'' means exponential (or stretched-exponential) in $n$, whereas ``small'' is closer to logarithmic in $n$.
+
+A consistent theme is that degree heterogeneity strongly affects persistence.
+For instance, under extinction-time notions of criticality, it has been shown that $\lambda_c=0$ for the Barab\'asi--Albert model \cite{berger2005spread} and for configuration models with heavy-tailed degree distributions \cite{ChatterjeeDurrett2009}.
+Moreover, for these heavy-tailed settings, the extinction time can be stretched-exponential (and in some cases exponential) in $n$ even for arbitrarily small $\lambda>0$, with a metastable infected fraction maintained during the long persistence window \cite{Mountford2013,mountford2016exponential}.
+In contrast, for degree distributions having exponential moments, recent results show that the corresponding $\lambda_c$ (in the extinction-time sense) is positive, implying that sufficiently weak infection dies out rapidly regardless of network size \cite{bhamidi2021survival}; in particular this includes random regular graphs and Erd\H{o}s--R\'enyi graphs \cite{mourrat2016phase,cator2021explicit,nam2022critical}.
+
+\textbf{Thresholds from small initial prevalence and spectral mean-field baselines.}
+A different and widely used notion of onset asks what happens when the process starts from a small number (or small fraction) of infected nodes.
+In this setting, one again observes two qualitative behaviors: (a) rapid decay to zero (extinction) or (b) growth to a positive metastable prevalence (persistence).
+A foundational line of work links the onset of endemic SIS behavior to the spectral radius of the adjacency matrix.
+Early eigenvalue-based arguments and mean-field analyses suggest a threshold of the form $\tau_c \approx 1/\lambda_1(A)$, where $\tau=\beta/\mu$ and $\lambda_1(A)$ denotes the largest eigenvalue (spectral radius) of $A$ \cite{PastorSatorras2001,Wang2003}.
+The N-intertwined mean-field approximation (NIMFA) formalizes node-level dynamics that recover the same adjacency-spectral condition in a tractable ODE system \cite{VanMieghem2009}, and reviews summarize when such approximations are accurate and when they deviate \cite{PSV2015}.
+These static-network baselines are the conditions our multiplex analysis must reduce to when temporal contacts are absent.
+
+For highly heterogeneous networks, however, the effective onset behavior can differ from the simple $\tau_c\approx 1/\lambda_1(A)$ picture, and the probability literature provides complementary perspectives.
+Using self-duality of the contact process \cite{liggett2013stochastic}, survival from a small seed can be related to metastable prevalence under all-infected initialization.
+In heavy-tailed random-graph settings, this motivates scaling relations for the probability of long persistence from a small number of initially infected nodes and yields thresholds that may vanish with $n$ (up to logarithmic factors), consistent with the extinction-time viewpoint \cite{ChatterjeeDurrett2009,Mountford2013,mountford2016exponential,bhamidi2021survival}.
+When one wishes to make this connection explicit, one may express a survival/metastable-density scaling $\phi(\lambda)$ (for power-law exponent $\alpha$) and infer how many seeds are needed to trigger persistence; the corresponding network-size scaling is then tied to eigenvalue/maximum-degree scalings in heavy-tailed graphs \cite{flaxman2005high,Chung2003}.
+(We emphasize that these heavy-tail asymptotics depend on the random-graph model class and exponent regime; we cite them here primarily to highlight that multiple notions of ``threshold'' coexist in the literature and can behave differently in heterogeneous networks.)
+
+\textbf{Temporal networks and activity-driven models.}
+Temporal-network studies emphasize that time ordering and contact turnover can shift thresholds relative to static aggregates \cite{HolmeSaramaki2012}.
+The activity-driven network (ADN) is a simple and influential generator: at each snapshot, nodes activate and create a fixed number of short-lived links, producing an expected snapshot mean degree proportional to activity and contact parameters \cite{Perra2012}.
+We adopt a homogeneous ADN layer (one-step lifetime; identical activation probability $a$ and contact count $m$) as the temporal component of our multiplex.
+
+\textbf{General threshold formulations on time-varying graphs.}
+Beyond specific temporal generators, thresholds on time-varying graphs have been expressed via lifted formulations that encode both structure and time ordering; the epidemic threshold then appears as a spectral condition on an infection-propagator operator and reduces to the static case under aggregation \cite{Valdano2015}.
+Our goal differs in scope: we specialize to a static + homogeneous activity-driven multiplex and derive a closed-form, low-dimensional estimator that depends only on the static spectral radius and the mean temporal connectivity.
+
+\textbf{Multiplex and interconnected networks.}
+Epidemic thresholds on multiplex/interconnected systems have been analyzed using spectral and mean-field tools, showing how interlayer coupling modifies onset and localization.
+Spectral conditions for coupled layers and their dependence on supra-adjacency/supra-Laplacian constructions appear in \cite{Kivela2014,DeDomenico2013,Gomez2013}, while explicit epidemic-threshold shifts under coupling are studied in \cite{SahnehScoglio2013ACC,WangPRE2013,Buono2014}.
+Interplay with awareness or competing processes can further reshape thresholds and phases \cite{Granell2013,Arruda2017}.
+Relative to these works, we focus on a minimal coupling where a static backbone is overlaid with ADN-like, one-step temporal contacts, and we assess a simple additive estimator (in terms of $\lambda_1(A)$ and the mean temporal connectivity) against simulations across ER/WS/BA backbones.
+This yields a directly usable critical integer contact count $m_c$ capturing the minimal temporary connectivity required to move the system from extinction to persistence in the near-DFE, finite-size regime.
+
+
+% ------------------------------------------------------------------------------------
+\section{Model and Simulation Setup}
+\label{sec:model}
+
+\subsection{Network layers}
+We consider $N$ nodes interacting on two layers (Fig.~\ref{fig:network_layers}):
+\begin{itemize}
+  \item \textbf{Static layer:} an undirected simple graph with adjacency matrix $A\in\{0,1\}^{N\times N}$, zero diagonal, and spectral radius $\lambda_1$.
+  \item \textbf{Activity-driven temporal layer (discrete time):} at each snapshot $t$, every node independently ctivates with probability $a\in(0,1)$. An active node creates exactly $m\in\mathbb{N}$ undirected links to $m$ distinct, uniformly random targets among the other $N-1$ nodes. These temporal links exist for one step and then disappear.
+  \item \textbf{Inter-layer coupling:} The two layers share the same node set. Each node \(i\) has a single infection state used on both layers, and its static and temporal replicas are tied by identity inter-layer links.
+\end{itemize}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.85\linewidth]{img/Multiplex_Network.png}
+  \caption{Temporal multiplex structure over a Watts-Strogatz Network.
+  The static backbone (top) and the activity-driven temporal layer (bottom). Temporal orange edges represent short-lived random contacts formed at a given time step. Vertical dotted lines connect each node to its temporal instances across layers.}
+  \label{fig:network_layers}
+\end{figure}
+
+\subsection{Initialization and run protocol}
+Unless stated otherwise, we set $\mu=1$ and initialize with a small infected fraction (e.g., $1\%$ of nodes chosen uniformly at random). Each experiment runs for $T$ steps (typical values $T\in[200,1000]$) with burn-in $T_b=T/2$, and averages results over $R$ replicates with independent random seeds. All experiments use the discrete-time process.
+
+\subsection{Simulation overview (pseudocode)}
+We use synchronous updating (see Algorithm~\ref{alg:pseudocode}): at each discrete step $t$, we first construct the temporal graph $G_t$, then compute infection probabilities from the states at time $t$ on $G \cup G_t$, and finally apply all infections and recoveries simultaneously to obtain the states at time $t{+}1$.
+
+\begin{algorithm}
+\caption{Discrete-time SIS on static + activity-driven multiplex}
+\label{alg:pseudocode}
+\begin{algorithmic}[1]
+\Require static graph $G=(V,E)$, activation prob.\ $a$, contacts per activation $m$, $\beta$, $\mu$
+\Ensure steady-state prevalence estimate
+
+\For{$r=1$ to $R$}
+    \State initialize $x_i \in \{S,I\}$
+    \For{$t=1$ to $T$}
+        \State build empty temporal graph $G_t$
+        \For{each $i \in V$}
+            \If{$i$ activates with prob.\ $a$}
+                \State choose $m$ random non-neighbors
+                \State add edges $(i,j)$ to $G_t$
+            \EndIf
+        \EndFor
+        \For{each $i \in V$}
+            \If{$x_i=I$}
+                \State $x_i \gets S$ with prob.\ $\mu$
+            \Else
+                \State let $k_i$ be infected neighbors in $G \cup G_t$
+                \State $x_i \gets I$ with prob.\ $1-(1-\beta)^{k_i}$
+            \EndIf
+        \EndFor
+        \State record infected fraction at time $t$
+    \EndFor
+\EndFor
+\State average over $R$ runs
+\end{algorithmic}
+\end{algorithm}
+
+
+\subsection{Estimators and diagnostics}
+Let $I_t$ be the number of infected nodes at step $t$.
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+  \item \textbf{Steady-state prevalence:}
+  \[
+    \bar\rho \;=\; \frac{1}{T-T_b}\sum_{t=T_b+1}^{T} \frac{I_t}{N}.
+  \]
+  \item \textbf{Extinction probability:} fraction of replicates that end with $I_t=0$ by $t=T$.
+  \item \textbf{Early-time growth rate:} fit a least-squares line to $\log I_t$ over an early window with small prevalence (e.g., first $200$--$500$ steps with $I_t/N<5\%$) and report the slope $r_{\mathrm{sim}}$.
+\end{itemize}
+
+\subsection{Motivating examples (same $\tau<1/\lambda_1$, different $m$)}
+Figures~\ref{fig:motiv_m0} and~\ref{fig:motiv_m10} show the average SIS trajectories on the same static network and with the same $\tau$ chosen below the static bound $1/\lambda_1$, but with $m=0$ (no temporal links) versus $m=10$ (temporal mixing). When $m=0$, infection dies out ($\bar\rho\to 0$); when temporal links are present, the process persists ($\bar\rho>0$). This motivates a low-dimensional estimate that links the static spectral term $\lambda_1$ and the temporal mixing level $(a,m)$.
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.6\linewidth]{img/sis_average_curve_m=0.png}
+  \caption{SIS dynamics on the static layer only ($m=0$). The transmission rate is fixed at $\tau = 0.08$, which is smaller than $\tau_c=1/\lambda_1$. The infection cannot be sustained.
+    The prevalence decays to zero, and the system converges to the disease-free state.
+    }
+
+  \label{fig:motiv_m0}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.6\linewidth]{img/sis_average_curve_m=10.png}
+  \caption{SIS dynamics with added temporal mixing ($m=10$).
+    The transmission rate and the static network are kept identical to Fig.~\ref{fig:motiv_m0}. The addition of temporal connectivity can cause the system to converge to a metastable state.}
+
+  \label{fig:motiv_m10}
+\end{figure}
+
+\subsection{Notes and assumptions}
+Throughout the simulation study we use one-step temporal links and homogeneous activity (each node activates independently with probability $a$ and forms $m$ contacts); partners are chosen uniformly at random as in the activity-driven model of~\cite{Perra2012}. Static graphs are quenched during a run, and temporal edges never duplicate within a step.
+
+% ------------------------------------------------------------------------------------
+\section{Mean-Field Estimation}
+\label{sec:main}
+
+\subsection{State variables}
+Let $p_i(t)\in[0,1]$ be the probability that node $i$ is infected at the beginning of step $t$, and let
+\[
+\bar p(t)\;\equiv\;\frac{1}{N}\sum_{j=1}^N p_j(t)
+\]
+be the mean infected probability. We analyze the evolution of $\{p_i(t)\}_{i=1}^N$ near the disease-free equilibrium (DFE), where all $p_i$ are small.
+
+\subsection{Discrete-time update}
+The per-node infection probability updates as
+\begin{equation}
+p_i(t{+}1)
+= (1-\mu)\,p_i(t)\;+\;\big(1-p_i(t)\big)\,\Pi_i(t),
+\label{eq:model-dt-exact}
+\end{equation}
+where $\Pi_i(t)$ is the probability that at least one infectious contact reaches node $i$ during step $t$.
+Decomposing by layer,
+\begin{equation}
+\Pi_i(t)
+\;\approx\; 1-\underbrace{\prod_{j}(1-\beta\,a_{ij}\,p_j(t))}_{\text{static layer}}
+\;\times\;
+\underbrace{\big(1-\beta\,x_i^{\mathrm{temp}}(t)\big)}_{\text{temporal layer}},
+\label{eq:model-Pi}
+\end{equation}
+with $a_{ij}$ the $(i,j)$ entry of $A$, and $x_i^{\mathrm{temp}}(t)$ the (expected) number of infected temporal contacts that hit $i$ during step $t$.
+
+\subsection{Mean-field temporal exposure}
+Under the homogeneous activity-driven rule (activation probability $a$, $m$ contacts per activation) and random partner selection, the expected number of infected temporal contacts received by a node in one step is
+\begin{equation}
+x_i^{\mathrm{temp}}(t)
+\;\approx\; 2\,a\,m\,\bar p(t),
+\label{eq:model-2am}
+\end{equation}
+where the two contributions are: (i) $i$ activates and selects infected targets; (ii) infected nodes activate and select $i$. This is consistent with the activity-driven mean snapshot degree $2am$\cite{Perra2012}.
+
+\subsection{Linearization near the DFE}
+Using the first-order approximation \eqref{eq:model-Pi} with small probabilities $\{p_j(t)\}$ and together with the mean-field temporal exposure \eqref{eq:model-2am} gives
+\begin{equation}
+\Pi_i(t)\;\approx\;\beta\sum_{j} a_{ij}\,p_j(t)\;+\;2\,\beta\,a\,m\,\bar p(t).
+\label{eq:model-Pi-linear}
+\end{equation}
+Substituting \eqref{eq:model-Pi-linear} into \eqref{eq:model-dt-exact}, subtracting $p_i(t)$ from both sides, and discarding the quadratic term $p_i(t)\,\Pi_i(t)$ yields the discrete linear update
+
+\begin{equation}
+\begin{split}
+p_i(t+1) - p_i(t) \approx & -\mu p_i(t) + \beta \sum_{j} a_{ij} p_j(t) \\
+& + 2\beta a m \bar{p}(t).
+\end{split}
+\label{eq:model-dt-linear}
+\end{equation}
+
+\paragraph{continuous-time surrogate}
+For linear analysis only, we treat one discrete step as a unit time increment
+(\(\Delta t = 1\)) and replace the finite difference in \eqref{eq:model-dt-linear} by a
+derivative, obtaining the continuous-time surrogate
+\begin{equation}
+\frac{dp_i}{dt}
+\;\approx\;
+-\mu\,p_i\;+\;\beta\sum_{j} a_{ij}\,p_j\;+\;2\,\beta\,a\,m\,\bar p.
+\label{eq:model-ode}
+\end{equation}
+This surrogate is used to compute the dominant growth rate and the threshold; all
+simulations in Sec.~\ref{sec:simulations} remain discrete-time and implement the update
+in \eqref{eq:model-dt-exact}.
+
+Stacking $p(t)=[p_1(t),\dots,p_N(t)]^\top$ and writing $J\equiv \tfrac{1}{N}\mathbf{1}\mathbf{1}^\top$
+(the averaging matrix), the linear-analysis surrogate \eqref{eq:model-ode} becomes
+\begin{equation}
+\dot p \;=\; \big(\beta A - \mu I + 2\,\beta\,a\,m\,J\big)\,p,
+\qquad J^2=J.
+\label{eq:model-vector}
+\end{equation}
+
+
+
+\subsection{Assumptions used in the analysis}
+\label{subsec:assumptions}
+\begin{itemize}
+  \item \textbf{Near-DFE linearization:} products of infection probabilities are neglected ($O(p^2)$ terms dropped).
+  \item \textbf{Mean-field temporal mixing:} temporal partners are uniformly random; $X_i^{\mathrm{temp}}(t)$ is replaced by its expectation $2am\,\bar p(t)$.
+  \item \textbf{One-step temporal links:} temporal contacts last exactly one time step (discrete-time model).
+\end{itemize}
+
+\subsection{Quantities of interest}
+We will derive a closed-form epidemic threshold in terms of $(\lambda_1,a,m)$ and the ratio $\tau=\beta/\mu$, and define the critical integer contact count $m_c$ as the smallest $m\in\mathbb{N}$ that makes the system supercritical. Validation is via stochastic simulations measuring steady-state prevalence and early-time growth rates.
+
+
+
+Using the near-DFE linearization summarized in the appendix (see Appendix, Section~\ref{app:proof-threshold}), the node–probability vector satisfies (\ref{eq:model-vector}) with effective infection ratio $\tau \equiv \beta/\mu$. Under the homogeneous activity assumption and one-step temporal links, the extinction–persistence boundary is well-approximated by
+\begin{equation}
+\boxed{\;\tau_c^{\text{mf}} \;=\; \frac{1}{\lambda_1 + 2 a m}\;}
+\label{eq:main-threshold}
+\end{equation}
+
+\medskip
+When $m=0$, \eqref{eq:main-threshold} reduces to the classical static-network condition $\tau_c^{\text{mf}}=1/\lambda_1$.
+In contrast, when the static layer is absent (i.e., no permanent links so that $\lambda_1=0$), the threshold becomes $\tau_c^{\text{mf}} = \frac{1}{2 a m}$ which corresponds to the mean-field prediction for the original activity-driven network model~\cite{Perra2012}.
+
+
+For fixed $(\beta,\mu,a)$, solving \eqref{eq:main-threshold} for $m$ yields the real value
+\[
+m^\star \;=\; \frac{1/\tau - \lambda_1}{2a}.
+\]
+Because $m$ is an integer and the empirical boundary is sharp, we use the smallest integer at or above $m^\star$:
+\begin{equation}
+\boxed{\; m_c^{\text{mf}} \;=\; \max\!\left\{\,0,\ \left\lceil \frac{1/\tau - \lambda_1}{2a} \right\rceil \right\} \;}
+\label{eq:mc}
+\end{equation}
+
+A detailed derivation of the threshold condition and the associated mean-field approximation is provided in Appendix~\ref{sec:appendix}.
+
+
+% ------------------------------------------------------------------------------------
+\section{Evaluation}\label{sec:simulations}
+
+This section describes the framework used to approximate the threshold through simulations and compares it with the estimated threshold
+\(
+\tau_c = 1/(\lambda_1+2am)
+\)
+and the estimated critical contact count \(m_c\) in discrete time. We evaluate the analytical threshold estimation using discrete-time SIS simulations on three random network models: Watts--Strogatz (WS), Erd\H{o}s--R\'enyi (ER), and Barab\'asi--Albert (BA). All experiments use the discrete-time process.
+
+\subsection{Network instances}
+We evaluate the theory on multiple random graph families as the static layer:
+Erd\H{o}s--R\'enyi (ER), Watts--Strogatz (WS), and Barab\'asi--Albert (BA).
+For each family we fix \(N\) and its native parameter(s) (e.g., ER edge probability \(p\), WS rewiring probability \(q\), BA attachment \(m_0\)).
+For every instance we compute the largest eigenvalue \(\lambda_1\) of the static adjacency \(A\). Each network has $N=10000$ nodes and a comparable average degree $\langle k \rangle \approx 4$.
+
+\subsection{Estimators and diagnostics}
+All remaining implementation details, including the temporal activation process, SIS update rules, and run protocol, follow exactly the procedures described in Sec.~\ref{sec:model}. We also report the extinction probability across replicates (fraction of runs ending with \(I_t=0\)).
+
+\paragraph*{Early-time growth rate}
+Same as what we did before, over an early window (e.g., the first \(200\!-\!500\) steps while \(\frac{I_t}{N}<5\%\)), we fit a least-squares line to \(\log(I_t)\) vs.\ \(t\) to estimate a slope \(r_{\mathrm{sim}}\).
+Theory estimates the near-DFE rate
+\[
+r_{\mathrm{th}}=\mu\big(\tau(\lambda_1+2am)-1\big),
+\]
+which changes sign at \(\tau_c\).
+We compare \(r_{\mathrm{sim}}\) and \(r_{\mathrm{th}}\) as a sensitive validation near the boundary. To ensure time-averaging is meaningful, we verify that the moving average of \(I_t/N\) over a sliding window (e.g., length \(200\)) has slope below a small tolerance (e.g., \(<10^{-5}\)) before computing \(\bar\rho\).
+
+
+\subsection{Network characterization}
+
+To ensure a fair comparison across network topologies, we generated three networks—
+Erd\H{o}s–R\'enyi (ER), Watts–Strogatz (WS), and Barab\'asi–Albert (BA)—with approximately the same
+average node degree $\langle k \rangle \approx 4$.  
+Each network contains $N=10^4$ nodes but differs in structural heterogeneity and spectral
+properties, which influence epidemic spreading dynamics.
+
+\begin{itemize}
+  \item \textbf{Erd\H{o}s--R\'enyi (ER):} A purely random network where each edge is present
+  independently with probability $p$.  
+  The resulting degree distribution follows a binomial (approximately Poisson) form, with most nodes near the mean degree and few extremes.
+  This topology provides a homogeneous baseline for threshold comparison.
+
+  \item \textbf{Watts--Strogatz (WS):} A small-world network built from a regular ring lattice
+  (degree $K$) where each edge is rewired with probability $q$.
+  It preserves moderate clustering and short path lengths.
+  The degree distribution is narrow and nearly regular, leading to a tight spectral band.
+
+  \item \textbf{Barab\'asi--Albert (BA):} A scale-free network constructed via preferential
+  attachment with parameter $m$.  
+  It exhibits a heavy-tailed degree distribution, producing a few high-degree hubs.
+  These hubs substantially increase the spectral radius $\lambda_1$,
+  which lowers the epidemic threshold relative to ER and WS.
+\end{itemize}
+
+The main structural characteristics of the generated networks are summarized in
+Table~\ref{tab:networks}.  
+All three have comparable mean degree, yet their largest eigenvalues differ from each other,
+showing how heterogeneity (especially in the BA case) amplifies the spectral radius
+and therefore epidemic potential.
+
+\begin{table}[t]
+\centering
+\caption{Network parameters and structural characteristics.}
+\label{tab:networks-vertical}
+\begin{tabular}{ll}
+\toprule
+\textbf{Network:} & Erd\H{o}s--R\'enyi (ER) \\
+\textbf{Average degree:} & $3.97$ \\
+\textbf{Spectral radius $\lambda_1$:} & 5.23 \\
+\textbf{Generation parameters:} & $p = 0.0004$ \\
+\textbf{Notes:} & Homogeneous, random \\
+\midrule
+\textbf{Network:} & Watts--Strogatz (WS) \\
+\textbf{Average degree:} & $4.00$ \\
+\textbf{Spectral radius $\lambda_1$:} & 4.19 \\
+\textbf{Generation parameters:} & $K = 4, q = 0.1$ \\
+\textbf{Notes:} & Small-world, clustered \\
+\midrule
+\textbf{Network:} & Barab\'asi--Albert (BA) \\
+\textbf{Average degree:} & $4.00$ \\
+\textbf{Spectral radius $\lambda_1$:} & 15.89 \\
+\textbf{Generation parameters:} & $m_0 = 2$ \\
+\textbf{Notes:} & Scale-free, heavy-tailed \\
+\bottomrule
+\end{tabular}
+\label{tab:networks}
+\end{table}
+
+
+Figure~\ref{fig:pmf_all} shows the degree probability mass functions (PMFs) of the
+three networks.  
+Although the average degree is similar, the heterogeneity of the BA network is
+immediately visible through its broad tail, while the WS and ER graphs remain much
+tighter around the mean.
+
+\begin{figure}[!htbp]
+\centering
+
+\includegraphics[width=0.5\linewidth]{img/pmf_ER.png}
+
+\medskip
+\textbf{(a) Erd\H{o}s--R\'enyi (ER)}
+
+\bigskip
+
+\includegraphics[width=0.5\linewidth]{img/pmf_WS.png}
+
+\medskip
+\textbf{(b) Watts--Strogatz (WS)}
+
+\bigskip
+
+\includegraphics[width=0.5\linewidth]{img/ccdf_BA.png}
+
+\medskip
+\textbf{(c) Barab\'asi--Albert (BA)}
+
+\caption{Degree distributions for three matched-density networks:
+(a) Erd\H{o}s--R\'enyi (ER), (b) Watts--Strogatz (WS), and
+(c) Barab\'asi--Albert (BA) in log scale,
+with 10,000 nodes and average node degree
+$\langle k\rangle \approx 4$.}
+\label{fig:pmf_all}
+\end{figure}
+
+
+
+
+
+\subsection{Experimental designs}
+We organize two core experiments (each run on several static families):
+
+\textbf{E1}: \(m\)-sweep at fixed \(\tau<1/\lambda_1\) (see Fig.~\ref{fig:E1_all}):
+Vary \(m=0,1,\dots,m_{\max}\) for a fixed \(\tau\) chosen below the static threshold.
+Prediction: onset at
+\(
+m_c=\min\{m\in\mathbb{N}: \tau>1/(\lambda_1+2am)\}.
+\)
+Outcome metric: \(\bar\rho(m)\) with a vertical reference at \(m_c\).
+
+\textbf{E2}: Phase diagram in \((\tau,m)\) (see Fig.~\ref{fig:E2_all}):
+Generate a grid \(\tau\in[\tau_{\min},\tau_{\max}]\), \(m\in\{0,\dots,M\}\) (denser near the boundary).
+Outcome metric: heatmap of \(\bar\rho(\tau,m)\) with the theoretical boundary \(\tau=1/(\lambda_1+2am)\) overlaid.
+This visually tests both onset location and monotonicity.
+
+\subsection{Reproducibility and implementation}
+All runs use independent random seeds (logged per replicate), no duplicate temporal edges within a step, and parallel execution for throughput.
+We record \((N,\) static family and parameters, \(\lambda_1, a, m, \beta, \mu, R, T, T_b)\) with the time series \(I_t\) and summary statistics \((\bar\rho, \text{SE}, r_{\mathrm{sim}})\).
+
+Each point is averaged over 100 runs of 200 steps, after a transient cutoff of 100 steps. The steady-state prevalence $\bar{\rho}$ is the mean fraction of infected nodes after transients.
+
+% --------------------------------------------------
+% Grouped experiments: E1, E2, E3 across WS/ER/BA
+% --------------------------------------------------
+% ------- E1: stacked -------
+\begin{figure}[!htbp]
+\centering
+
+\includegraphics[width=0.5\linewidth]{img/WS_E1.png}
+
+\medskip
+\textbf{(a) Erd\H{o}s--R\'enyi (ER)}
+
+\bigskip
+
+\includegraphics[width=0.5\linewidth]{img/ER_E1.png}
+
+\medskip
+\textbf{(b) Watts--Strogatz (WS)}
+
+\bigskip
+
+\includegraphics[width=0.5\linewidth]{img/BA_E1.png}
+
+\medskip
+\textbf{(c) Barab\'asi--Albert (BA)}
+
+\caption{Experiment E1 (varying $m$ at fixed $\tau < 1/\lambda_1$).
+Each panel shows simulated steady-state prevalence for increasing
+temporal contacts $m$. The vertical dashed line marks the theoretical
+critical contact count $m_c$, consistent with
+$\tau_c = 1/(\lambda_1 + 2 a m_c)$.}
+\label{fig:E1_all}
+\end{figure}
+
+
+% ------- E3: stacked -------
+\begin{figure}[!htbp]
+\centering
+
+\includegraphics[width=0.5\linewidth]{img/WS_E3.png}
+
+\medskip
+\textbf{(a) Erd\H{o}s--R\'enyi (ER)}
+
+\bigskip
+
+\includegraphics[width=0.5\linewidth]{img/ER_E3.png}
+
+\medskip
+\textbf{(b) Watts--Strogatz (WS)}
+
+\bigskip
+
+\includegraphics[width=0.5\linewidth]{img/BA_E3.png}
+
+\medskip
+\textbf{(c) Barab\'asi--Albert (BA)}
+
+\caption{Experiment E2 (phase diagram over $(\tau,m)$).
+Heatmaps of average prevalence $\bar{\rho}(\tau,m)$ with the dashed curve
+$\tau_c = 1/(\lambda_1 + 2 a m)$ tracking the empirical boundary.}
+\label{fig:E2_all}
+\end{figure}
+
+
+% --------------------------------------------------
+
+% ------------------------------------------------------------------------------------
+\section{Discussion and Conclusion}
+
+Across ER, WS, and BA backbones, the simulations show a clear extinction–persistence
+transition that closely tracks the mean-field boundary
+\(\tau_c^{\text{mf}}=1/(\lambda_1+2am)\) (Fig.~\ref{fig:E1_all}–\ref{fig:E2_all}).
+The boundary appears as a smooth curve in the \((\tau,m)\) plane; its location and sharpness
+depend on topology through \(\lambda_1\) and on temporal activity through \(2am\).
+
+\paragraph*{Topology‐specific patterns}
+For ER graphs, the transition is relatively sharp, consistent with a narrow degree
+distribution and a tight spectral band. BA graphs exhibit a broader transition zone:
+high-degree hubs can sustain small but nonzero prevalence slightly below the
+mean-field curve, producing ``leakage’’ in nominally subcritical settings.
+WS networks fall between these extremes; local clustering introduces correlations that
+slightly shift the onset and stabilize prevalence once established. These patterns
+support the view that \(\lambda_1\) sets the structural scale for persistence, while
+the temporal term \(2am\) provides an additive and tunable contribution.
+
+For the contact process on power-law graphs, the rigorous result of
+Chatterjee–Durrett is that the true critical value vanishes as \(N\to\infty\)
+(\(\lambda_c=0\)) when the tail exponent \(\alpha>3\) \cite{ChatterjeeDurrett2009}.
+Our study works with finite, quenched networks and reports finite-\(N\) thresholds
+of the form \(\tau_c(N,m)\approx 1/(\lambda_1(N)+2am)\).
+On scale-free families (e.g., BA), \(\lambda_1(N)\) grows with \(N\), so
+\(\tau_c(N,m)\to 0\) as \(N\to\infty\), which is consistent with the zero-threshold
+theory. At practical sizes (\(N=10^4\) here), \(\lambda_1\) is finite
+(BA: \(\lambda_1\!\approx\!15.9\) for \(\langle k\rangle\!\approx\!4\)),
+yielding a finite effective boundary that matches the measured phase line; the
+temporal term \(2am\) shifts this finite-\(N\) boundary but does not restore a positive
+asymptotic threshold on genuinely heavy-tailed sequences.
+
+The statistic \(\lambda_1+2am\) acts as a low-dimensional connectivity proxy that
+captures early-time growth and the steady-state phase line. At fixed \(\tau\), the rounded critical contact
+count \(m_c^{\text{mf}}=\left\lceil (1/\tau-\lambda_1)/(2a) \right\rceil_+\) is a useful
+design knob: increasing (or suppressing) transient interactions moves the system across
+the boundary much like changing static connectivity.
+
+\paragraph*{Limitations and scope}
+The boundary we compare against is a mean-field (near-DFE) approximation:
+(i) products of small infection probabilities are dropped, (ii) temporal partners are
+assumed uniform (no activity heterogeneity), and (iii) temporal links last one step in
+discrete time. Near the boundary, finite-size fluctuations, clustering-induced
+correlations, and hub dominance in BA produce small, topology-dependent deviations
+that we observe in the heatmaps.
+
+A natural next step is to replace the homogeneous, one-step temporal layer with a richer model—e.g., node-specific activities \((a_i)\), contact counts \((m_i)\), non-uniform partner choice (community bias), and multi-step edge lifetimes. This would let us test whether the finite-\(N\) boundary still collapses to a low-dimensional proxy like \(\lambda_1 + 2\,\bar a\,\bar m\), or whether higher-order features (variance of \(a_i m_i\), edge lifetime distribution, or static–temporal overlap) enter as systematic corrections.
+
+
+\smallskip
+In summary, extensive simulations indicate that a simple, additive connectivity proxy
+\(\lambda_1+2am\) provides an acceptable finite-\(N\) estimator of the epidemic
+boundary across heterogeneous topologies, bridging mean-field theory with measurable
+outcomes and yielding an actionable control parameter \(m_c^{\text{mf}}\).
+
+
+% ------------------------------------------------------------------------------------
+\section*{Declarations}
+% ------------------------------------------------------------------------------------
+\textbf{Conflict of Interest:} The authors declare that they have no conflict of interest.
+% ------------------------------------------------------------------------------------
+\section*{Code and Data Availability}
+The source code and datasets used in this study are hosted on GitHub. You can access the repository, including the implementation of the SIS model on static and temporal networks, at: \url{https://github.com/KSUNetSE/SIS_multiplex_temporal_and_static}
+
+\bmhead{Acknowledgements}This work has been supported by the USDA National Institute of Food and Agriculture, grant number 2022-67015-38059 through the NSF/NIH/USDA/BBSRC/BSF/NSFC Ecology and Evolution of Infectious Diseases Program.
+
+% ------------------------------------------------------------------------------------
+\begin{appendices}
+
+\section{Derivation of the Threshold on a Static+Activity-Driven Multiplex}
+\label{sec:appendix}
+
+\subsection{Model recap and assumptions}
+We consider a multiplex with a fixed (static) layer encoded by the symmetric adjacency
+matrix $A\in\mathbb{R}^{N\times N}$ (zero diagonal), and a temporal activity-driven layer:
+at each discrete step $t\to t+1$, every node activates independently with probability
+$a\in(0,1)$ and, if active, creates $m\in\mathbb{N}$ undirected links to uniformly chosen
+distinct targets; these links persist for one step and then disappear.
+
+SIS dynamics (per step): an infected node recovers with probability $\mu\in(0,1)$; a
+susceptible node meeting an infected neighbor becomes infected with probability
+$\beta\in(0,1)$ (independently per infectious contact within the step). We define
+$\tau=\beta/\mu$.
+
+Throughout the derivation we use standard approximations for threshold analysis:
+(i) linearization around the disease-free equilibrium \emph{(DFE)},
+(i.e., we drop $\mathcal{O}(p_i p_j)$ terms), (ii) \emph{mean-field averaging} of the
+temporal contacts (we replace the stochastic one-step temporal adjacency by its
+expectation), and (iii) \emph{homogeneous temporal mixing}, namely that the temporal
+exposure in the activity-driven layer is uniform across nodes. These assumptions are
+appropriate near the onset and are classical in spectral/mean-field threshold analyses.
+
+\subsection{Node-level update and linearization}
+Let $p_i(t)\in[0,1]$ denote the infection probability of node $i$ at step $t$ and let
+$\bar p(t)=\tfrac1N \sum_{j=1}^N p_j(t)$ denote the population average. The
+discrete-time update can be written as
+\begin{equation}
+  p_i(t+1)
+  = (1-\mu)\,p_i(t) + \bigl(1-p_i(t)\bigr)\,\Pi_i(t),
+  \label{eq:A-node-update}
+\end{equation}
+where $\Pi_i(t)$ is the probability that at least one infectious contact
+reaches node $i$ during step $t$ (across both layers).
+
+Close to the DFE, $p_i(t)\ll 1$, so the product $(1-p_i(t))\,\Pi_i(t)$ can be
+linearized as $\Pi_i(t)$ up to $\mathcal{O}(p_i\Pi_i)=\mathcal{O}(p^2)$ terms.
+Subtracting $p_i(t)$ from \eqref{eq:A-node-update} then yields
+\begin{equation}
+  p_i(t+1)-p_i(t)
+  \;\approx\; -\mu\,p_i(t)\;+\;\Pi_i(t).
+  \label{eq:A-difference}
+\end{equation}
+Interpreting one step as unit time (or taking the small-step limit) gives the
+continuous-time linearized form
+\begin{equation}
+  \frac{dp_i}{dt}
+  \;\approx\; -\mu\,p_i(t)\;+\;\Pi_i(t).
+  \label{eq:A-ct}
+\end{equation}
+
+\subsection{Expected infectious pressure $\Pi_i(t)$}
+The probability $\Pi_i(t)$ can be decomposed into contributions from the static
+and temporal layers. Under the linearization,
+\[
+  \Pi_i(t)\;\approx\;\beta \sum_{j} a_{ij}\, p_j(t)\;+\;\beta\,x_i^{\text{temp}}(t),
+\]
+where $x_i^{\text{temp}}(t)$ is the expected number of infectious temporal
+contacts that reach node $i$ during step $t$.
+
+\paragraph{Lemma A.1 (Expected temporal exposure)}
+Under homogeneous activity $a$ and $m$ one-step contacts per activation,
+the mean temporal infectious exposure to node $i$ during step $t$ is
+\begin{equation}
+\begin{aligned}
+  \mathbb{E}\!\left[X_i^{\mathrm{temp}}(t)\right]
+  &= \frac{2am}{N-1}\sum_{j\ne i} p_j(t) \\[4pt]
+  &= 2am\,\bar p(t)\,\frac{N}{N-1}
+     \;-\; \frac{2am}{N-1}\,p_i(t) \\[4pt]
+  &\approx 2am\,\bar p(t),
+\end{aligned}
+\label{eq:A-2am}
+\end{equation}
+
+where the approximation holds for large $N$ or near the DFE ($p_i(t)\ll1$).
+
+\emph{Proof.}
+Decompose $X_i^{\mathrm{temp}}(t)$ into outbound and inbound infected temporal contacts:
+\[
+X_i^{\mathrm{temp}}(t)=X_i^{\mathrm{out}}(t)+X_i^{\mathrm{in}}(t).
+\]
+\textbf{Outbound (}when $i$ activates\textbf{):} with probability $a$, node $i$ selects $m$ distinct targets uniformly from $N-1$ candidates.
+By linearity of expectation, the expected number of infected targets among those $m$ is
+\[
+\mathbb{E}\!\left[X_i^{\mathrm{out}}(t)\right]
+= a\,m\cdot \frac{\sum_{j\ne i} p_j(t)}{N-1}.
+\]
+\textbf{Inbound (}when an infected node chooses $i$\textbf{):}
+for each $j\ne i$, with probability $p_j(t)$ node $j$ is infected; conditional on infection, $j$ activates with probability $a$ and includes $i$ among its $m$ choices with probability $m/(N-1)$. Summing indicators over $j\ne i$,
+\[
+\mathbb{E}\!\left[X_i^{\mathrm{in}}(t)\right]
+= \sum_{j\ne i} p_j(t)\cdot a\cdot \frac{m}{N-1}
+= a\,m\cdot\frac{\sum_{j\ne i} p_j(t)}{N-1}.
+\]
+Adding the two contributions gives \eqref{eq:A-2am}.
+
+
+\subsection{Vector form}
+Let $\mathbf{p}(t)=[p_1(t),\dots,p_N(t)]^\top$ and let
+$J:=\tfrac{1}{N}\mathbf{1}\mathbf{1}^\top$ denote the rank-one averaging operator so that
+$J\,\mathbf{p}=\bar p\,\mathbf{1}$. Stacking \eqref{eq:A-ct} for all $i$ yields
+\begin{equation}
+\begin{split}
+\dot{\mathbf{p}}(t)
+  &= (\beta A - \mu I)\mathbf{p}(t)
+    + 2\beta a m\bar{p}(t)\,\mathbf{1} \\
+  &= \Bigl(\beta A - \mu I + 2\beta a m J\Bigr)\mathbf{p}(t).
+\end{split}
+\label{eq:A-vector}
+\end{equation}
+
+Thus, the temporal layer contributes a rank-one all-to-all term $2\beta a m\,J$.
+
+\subsection{Dominant-eigenvector reduction}
+\label{app:proof-threshold}
+Because $A$ is nonnegative and (assumed) irreducible, by Perron–Frobenius there exists
+a strictly positive unit eigenvector $\mathbf{v}_1$ with $A\mathbf{v}_1=\lambda_1\mathbf{v}_1$,
+where $\lambda_1$ is the spectral radius of $A$. 
+\begin{equation}
+p(t) \approx c(t)\,\mathbf{v}_1, 
+\qquad A\mathbf{v}_1=\lambda_1\mathbf{v}_1,\ \|\mathbf{v}_1\|_2=1,
+\label{eq:perron-ansatz}
+\end{equation}
+Near the DFE, the growth is dominated by this mode, so we project the dynamics along $\mathbf{v}_1$ and by substituting \eqref{eq:perron-ansatz} into \eqref{eq:A-vector} and left-multiplying by
+$\mathbf{v}_1^\top$ (with $\mathbf{v}_1^\top\mathbf{v}_1=1$) gives
+
+\begin{equation}
+\begin{split}
+\frac{dc}{dt} &= c(t) \left( (\beta\lambda_1 - \mu) + 2\beta am v_1^\top J v_1 \right) \\
+&= c(t) \left( \beta\lambda_1 - \mu + 2\beta am \frac{s^2}{N} \right), \quad s := v_1^\top \mathbf{1}.
+\end{split}
+\label{eq:A5-final}
+\end{equation}
+
+By Cauchy–Schwarz, $0< s=\mathbf{v}_1^\top \mathbf{1}\le \|\mathbf{v}_1\|\,\|\mathbf{1}\|=\sqrt{N}$,
+hence $0< \tfrac{s^2}{N}\le 1$, with equality when
+$\mathbf{v}_1=\tfrac{1}{\sqrt{N}}\mathbf{1}$ (homogeneous degree).
+Under the homogeneous temporal mixing assumption (empirically accurate for
+ER/WS backbones), we take $\tfrac{s^2}{N} \approx 1$, where
+\begin{equation}
+\begin{split}
+\frac{dc}{dt}
+  &\approx c(t)\,\Bigl(\beta\lambda_1 + 2\beta a m - \mu\Bigr) \\
+  &= \mu\,c(t)\,\Bigl(\tau(\lambda_1+2am)-1\Bigr).
+\end{split}
+\label{eq:A-cdot-simplified}
+\end{equation}
+
+Therefore the DFE is unstable (and the infection grows initially) iff
+$\tau(\lambda_1+2am)>1$.
+
+\subsection{Threshold and critical integer number of temporal contacts}
+Equation \eqref{eq:A-cdot-simplified} implies the epidemic threshold
+\begin{equation}
+  \boxed{\quad \tau_c \;=\; \frac{1}{\lambda_1+2am}\quad}
+  \label{eq:A-threshold}
+\end{equation}
+or, equivalently, $\beta_c=\mu/(\lambda_1+2am)$. For fixed $(\beta,\mu,a)$ and varying
+$m$, the smallest integer number of temporal contacts per activation that crosses the
+threshold is
+\begin{equation}
+  \boxed{\quad
+  m_c \;=\; \max\!\left\{\,0,\; \left\lceil \frac{1/\tau - \lambda_1}{2a}\right\rceil \right\}.
+  \quad}
+  \label{eq:A-mc}
+\end{equation}
+
+\subsection{Remarks on accuracy and bounds}
+The rank-one form in \eqref{eq:A-vector} implies that the effective linear operator is
+$\beta(A+2am\,J)-\mu I$. Since $J$ has eigenvalues $\{1,0,\dots,0\}$ with eigenvector
+$\mathbf{1}$, standard eigenvalue perturbation (Weyl inequalities) gives
+\[
+  \lambda_{\max}(A) \;\le\; \lambda_{\max}(A+2am\,J) \;\le\; \lambda_{\max}(A) + 2am,
+\]
+with equality on the right when $\mathbf{v}_1$ is exactly collinear with $\mathbf{1}$.
+Thus \eqref{eq:A-threshold} is exact for regular/homogeneous graphs and provides an
+accurate approximation for many random-like networks (e.g., ER/WS), as confirmed by
+the simulations; for strongly heterogeneous backbones (e.g., BA), small deviations can
+appear, but the additive law remains an excellent predictor of the onset.
+\end{appendices}
+
+\clearpage
+% ------------------------------------------------------------------------------------
+\bibliography{references}% common bib file
+%% if required, the content of .bbl file can be included here once bbl is generated
+%%\input sn-article.bbl
+
+\end{document}
