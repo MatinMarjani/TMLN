@@ -1,27 +1,23 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-venv/
-.venv/
-*.egg-info/
+# Ignore everything at the top level by default
+/*
 
-# Generated outputs
-SIS_Revision/figures/
-SIS_Revision/data/
-SIS_Revision/networks/graphs/
+# Except these
+!.gitignore
+!SIS_Revision/
+!Latex_Manuscript/
 
-# LaTeX build artifacts
-*.aux
-*.bbl
-*.blg
-*.fdb_latexmk
-*.fls
-*.log
-*.out
-*.synctex.gz
-*.pdf
+# Within Latex_Manuscript, only track two files
+/Latex_Manuscript/*
+!/Latex_Manuscript/sn-article.tex
+!/Latex_Manuscript/references.bib
 
-# OS
-.DS_Store
-Thumbs.db
+# Within SIS_Revision, exclude generated/env folders
+/SIS_Revision/venv/
+/SIS_Revision/figures/
+/SIS_Revision/data/
+/SIS_Revision/networks/graphs/
+
+# Python cache everywhere
+**/__pycache__/
+**/*.pyc
+**/*.pyo
